@@ -1,0 +1,269 @@
+// -*- mode: jsonc -*-
+[
+    {
+        // "layer": "top", // Waybar at top layer
+        // "position": "bottom", // Waybar position (top|bottom|left|right)
+        "height": 45, // Waybar height (to be removed for auto height)
+        "width": 1900, // Waybar width
+        "spacing": 4, // Gaps between modules (4px)
+        // Choose the order of the modules
+        "name": "top",
+        "layer": "bottom",
+        "position": "top",
+        "margin-top": 7,
+        "ipc":true,
+        "id":"bar-1",
+        "modules-left": [
+            "sway/workspaces",
+            "sway/mode",
+            "sway/scratchpad"
+        ],
+        "modules-center": [
+            "sway/window"
+        ],
+        "modules-right": [
+            "pulseaudio",
+            "network",
+            //"cpu",
+            //"memory",
+            //"temperature",
+            "clock",
+            "custom/notification",
+            "tray"
+        ],
+        "sway/window": {
+           "format": "{title}",
+            "icon": true,
+            "max-length": 30
+        },
+        //Modules configuration
+        "sway/workspaces": {
+            "all-outputs": true,
+            "persistent-workspaces": {
+                "1": [],
+                "2": [],
+                "3": [],
+                "4": []
+            }
+            //"format": "{name}: {icon}",
+            //"format-icons": {
+            //    "1": "",
+            //    "2": "",
+            //    "3": "",
+            //    "4": "",
+            //    "5": "",
+            //    "urgent": "",
+            //    "focused": "",
+            //    "default": ""
+            //}
+        },
+        "sway/mode": {
+            "format": "<span style=\"italic\">{}</span>"
+        },
+        "sway/scratchpad": {
+            "format": "{icon} {count}",
+            "show-empty": false,
+            "format-icons": [
+                "",
+                " "
+            ],
+            "tooltip": true,
+            "tooltip-format": "{app}: {title}"
+        },
+        "tray": {
+            // "icon-size": 21,
+            "spacing": 10
+        },
+        "clock": {
+            // "timezone": "America/New_York",
+            "tooltip-format": "<big>{:%d-%m-%Y}</big>\n<tt><small>{calendar}</small></tt>",
+            "format":"{:%I:%M %p}",
+            "format-alt": "{:%d-%m-%Y}"
+        },
+        "cpu": {
+            "format": "{usage}% ",
+            "tooltip": false
+        },
+        "memory": {
+            "format": "{}%  "
+        },
+        "temperature": {
+            "thermal-zone": 6,
+            "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+            "critical-threshold": 80,
+            "format-critical": "{temperatureC}°C {icon}",
+            "format": "{temperatureC}°C {icon}",
+            "format-icons": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "network": {
+            // "interface": "wlp2*", // (Optional) To force the use of this interface
+            "format-wifi": "({signalStrength}%)  ",
+            "format-ethernet": "{ipaddr}/{cidr} ",
+            "tooltip-format": "{ifname} via {gwaddr} ",
+            "format-linked": "{ifname} (No IP) ",
+            "format-disconnected": "Disconnected ⚠",
+            "format-alt": "{ipaddr}/{cidr}"
+        },
+        "pulseaudio": {
+            // "scroll-step": 1, // %, can be a float
+            "format": "{volume}% {icon} {format_source}",
+            "format-bluetooth": "{volume}% {icon} {format_source}",
+            "format-bluetooth-muted": " {icon} {format_source}",
+            "format-muted": " {format_source}",
+            "format-source": "{volume}% ",
+            "format-source-muted": " ",
+            "format-icons": {
+                "headphone": " ",
+                "hands-free": "",
+                "headset": " ",
+                "phone": "",
+                "portable": "",
+                "car": " ",
+                "default": [
+                    "",
+                    " ",
+                    " "
+                ]
+            },
+            "on-click": "pavucontrol"
+        },
+        "custom/notification": {
+            "tooltip": false,
+            "format": "{} {icon}",
+            "format-icons": {
+                "notification": "󱅫 ",
+                "none": " ",
+                "dnd-notification": " ",
+                "dnd-none": "󰂛 ",
+                "inhibited-notification": " ",
+                "inhibited-none": "",
+                "dnd-inhibited-notification": " ",
+                "dnd-inhibited-none": " "
+            },
+            "return-type": "json",
+            "exec-if": "which swaync-client",
+            "exec": "swaync-client -swb",
+            "on-click": "sleep 0.1 && swaync-client -t -sw",
+            "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+            "escape": true
+        }
+    },
+    {
+        "height": 45, // Waybar height (to be removed for auto height)
+        "width": 1200, // Waybar width
+        "spacing": 6, // Gaps between modules (4px)
+        "margin-bottom":7,
+        "name": "dock1",
+        "layer": "bottom",
+        "position": "bottom",
+        "mode":"hide",
+        "ipc":true,
+        "id":"bar-0",
+
+        //Left
+        "modules-left":[
+            "custom/media"
+        ],
+
+
+        //Center
+        "modules-center": [
+            "custom/Spotify",
+            "custom/Chrome",
+            "custom/VSCode",
+            "custom/terminal",
+            "custom/Steam",
+            "custom/qbittorrent",
+            "custom/whatsapp"
+        ],
+
+
+        //Right
+        "modules-right":[
+            "mpd",
+            "custom/linux"
+        ],
+
+        //modules
+        "custom/media": {
+            "format": "{icon}- {}",
+            "return-type": "json",
+            "max-length": 26,
+            "format-icons": {
+                "spotify": " ",
+                "default": "🎜"
+            },
+            "escape": true,
+            "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+            // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+        },
+        "mpd": {
+            "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})  ",
+            "format-disconnected": "Disconnected  ",
+            "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped  ",
+            "interval": 2,
+            "consume-icons": {
+            	"on": " " // Icon shows only when "consume" is on
+            },
+            "random-icons": {
+            	"off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
+            	"on": " "
+            },
+            "repeat-icons": {
+            	"on": " "
+            },
+            "single-icons": {
+            	"on": " 1 "
+            },
+            "state-icons": {
+            	"paused": "",
+            	"playing": ""
+            },
+            "tooltip-format": "MPD (connected)",
+            "tooltip-format-disconnected": "MPD (disconnected)"
+        },
+        "custom/linux":{
+            "format":"{icon}",
+            "format-icons":" Arch"
+        },
+        "custom/Spotify":{
+            "on-click": "spotify",
+            "format": "{icon}",
+            "format-icons": "  Spotify"
+        },
+        "custom/Chrome":{
+            "on-click": "google-chrome-stable",
+            "format": "{icon}",
+            "format-icons": "  Chrome"
+        },
+        "custom/VSCode":{
+            "on-click": "/usr/local/Apps/VSCode/bin/code",
+            "format": "{icon}",
+            "format-icons": "  VSCode"
+        },
+        "custom/terminal":{
+            "on-click": "kitty",
+            "format": "{icon}",
+            "format-icons": "  Terminal"
+        },
+        "custom/Steam":{
+            "on-click": "steam",
+            "format": "{icon}",
+            "format-icons": "  Steam"
+        },
+        "custom/qbittorrent":{
+            "on-click": "qbittorrent",
+            "format": "{icon}",
+            "format-icons": "  Torrent"
+        },
+        "custom/whatsapp":{
+            "on-click": "/opt/google/chrome/google-chrome --profile-directory=Default --app-id=hnpfjngllnobngcgfapefoaidbinmjnm",
+            "format": "{icon}",
+            "format-icons": "  Whatsapp Web"
+        }
+    }
+]

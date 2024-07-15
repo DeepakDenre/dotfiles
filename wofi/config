@@ -1,0 +1,9 @@
+xoffset=0
+yoffset=0
+width=500
+height=300
+mode=drun
+allow_images=true
+allow_markup=true
+insensitive=true
+pre_display_cmd="Search..."
