@@ -6,11 +6,15 @@
 }
 window#waybar {
     background-color: rgba(61, 53, 64, 0.9);
-    border: 4px solid #a678d3;
+    border: 4px solid #1d46ff;
     border-radius: 20px;
     color: #ffffff; 
     transition-property: background-color;
     transition-duration: .5s;
+}
+
+window#waybar.top {
+    border-radius: 0px 0px 20px 20px;
 }
 
 window#waybar.hidden {
@@ -24,7 +28,7 @@ window#waybar.hidden {
     margin-bottom: 7px;
     background-color: transparent;
     color: inherit;
-    border-radius: 13px;
+    border-radius: 0px 13px 0px 13px;
     font-weight: bolder;
 }
 
@@ -33,13 +37,13 @@ window#waybar.hidden {
 }
 
 #workspaces button:hover {
-    background: rgba(221, 219, 219, 0.5);
+    background: rgba(221, 219, 219, 0.418);
     box-shadow: none;
     text-shadow: none;
 }
 
 #workspaces button.focused {
-    background: rgba(82, 235, 255, 0.678);
+    background: rgb(252, 252, 252);
 
     color: black;
 }
@@ -64,12 +68,7 @@ window#waybar.hidden {
 #pulseaudio, #network, #tray, #cpu, #memory, #temperature, #clock, #custom-notification {
     padding-left: 8px;
     padding-right: 8px;
-    /*
-    padding-top: 5px;
-    padding-bottom: 5px;
-    */
-
-    background-color: rgba(195, 0, 255, 0.575);
+    background-color: rgba(94, 97, 196, 0.884);
     color: inherit;
     font-weight: 600;
     margin-top: 7px;
@@ -77,30 +76,34 @@ window#waybar.hidden {
     border-radius: 13px;
 }
 
+#custom-notification {
+    border-radius: 13px 0px 13px 13px;
+}
 
 
 #custom-Spotify, #custom-Chrome, #custom-VSCode, #custom-terminal, #custom-Steam, #custom-qbittorrent, #custom-whatsapp{
     padding-left: 8px;
     padding-right: 8px;
-    background-color: rgba(0, 0, 0, 0.726);
-    color: inherit;
+    background-color: rgba(255, 255, 255, 0.753);
+    color: black;
     font-weight: 600;
     margin-top: 7px;
     margin-bottom: 7px;
-    border-radius: 18px;
+    border-radius: 0px 12px 0px 12px;
     font-size: 12px;
 }
 
 #waybar.dock1{
     border: none;
-    border:  4px solid #7b00ac ;
-    background-color: rgb(251, 126, 255);
+    border:  4px solid #004ddb ;
+    border-radius: 20px 20px 0px 0px;
+    background-color: rgba(0, 0, 0, 0.397);
 }
 
 #custom-media, #mpd, #custom-linux{
     padding-left: 8px;
     padding-right: 8px;
-    background-color: rgba(255, 0, 157, 0.575);
+    background-color: rgba(0, 26, 255, 0.575);
     color: inherit;
     font-weight: 600;
     margin-top: 7px;
@@ -110,17 +113,15 @@ window#waybar.hidden {
 
 #custom-linux{
     margin-right: 7px;
-    background-color: rgb(49, 49, 182);
+    background-color: rgb(182, 49, 116);
     font-weight: bold;
     font-size: 18px;
+    border-radius: 13px 13px 0px 13px;
 }
 
 #custom-media{
     margin-left: 7px;
-}
-
-#tray{
-    margin-right: 7px;
+    border-radius: 13px 13px 13px 0px;
 }
 
 #custom-notification{
@@ -128,9 +129,9 @@ window#waybar.hidden {
 }
 
 #window {
-    background-color: rgba(196, 45, 255, 0.753);
+    background-color: rgba(34, 211, 255, 0.753);
     min-width: 500px;
-    border-radius: 20px;
+    border-radius:20px;
     margin-top: 7px;
     margin-bottom: 7px;
     border: 3px solid white;

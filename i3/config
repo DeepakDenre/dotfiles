@@ -24,15 +24,15 @@ gaps outer 3
 default_border pixel 4
 
 #swayfx config
-smart_corner_radius on
-corner_radius 6
-default_dim_inactive 0.05
-blur enable
-blur_passes 2
-blur_radius 2
-layer_effects "waybar" "blur enable"; shadows enable
-shadows on
-shadow_blur_radius 20
+#smart_corner_radius on
+#corner_radius 6
+#default_dim_inactive 0.05
+#blur enable
+#blur_passes 2
+#blur_radius 2
+#layer_effects "waybar" "blur enable"; shadows enable
+#shadows on
+#shadow_blur_radius 20
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -57,7 +57,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
 
 #Wallpaper
-exec --no-startup-id swaybg -i Wallpaper/cozy_Shed.jpg
+exec --no-startup-id swaybg -i /home/deepak/Wallpaper/Elden_Ring_Radan.jpg
 
 
 

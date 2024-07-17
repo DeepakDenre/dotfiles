@@ -28,8 +28,8 @@
             //"memory",
             //"temperature",
             "clock",
-            "custom/notification",
-            "tray"
+            "tray",
+            "custom/notification"
         ],
         "sway/window": {
            "format": "{title}",
