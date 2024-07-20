@@ -1,0 +1,11 @@
+# Ignore Everything 
+*
+
+#dont ignore the following
+!.gitignore
+!i3
+!kitty
+!waybar
+!wlogout
+!wofi
+!zsh

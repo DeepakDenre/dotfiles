@@ -57,9 +57,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
 
 #Wallpaper
-exec --no-startup-id swaybg -i /home/deepak/Wallpaper/Elden_Ring_Radan.jpg
-
-
+exec --no-startup-id swaybg -i ~/.config/Wallpaper/Elden_Ring_Radan.jpg
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
