@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font 'FiraCode Nerd Font':monospace 8
+font pango:FiraCode Nerd Font, 18
 
 #Gaps
 gaps inner 6
@@ -190,7 +190,7 @@ bindsym Mod1+Shift+5 exec steam
 bindsym Mod1+Shift+6 exec qbittorrent
 bindsym Mod1+Shift+7 exec google-chrome-stable --profile-directory=Default --app-id=hnpfjngllnobngcgfapefoaidbinmjnm
 
-bindsym $mod+m exec wlogout
+bindsym $mod+m exec wlogout -b 4 -c 90 
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
