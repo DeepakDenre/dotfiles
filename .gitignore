@@ -10,6 +10,7 @@
 !wofi
 !zsh
 !Wallpaper
+!sddm_themes
 
 !i3/*
 !kitty/*
@@ -18,3 +19,4 @@
 !wofi/*
 !zsh/*
 !Wallpaper/*
+!sddm_themes/*

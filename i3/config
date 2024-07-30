@@ -24,12 +24,12 @@ gaps outer 3
 default_border pixel 4
 
 #swayfx config
-#smart_corner_radius on
-#corner_radius 6
-#default_dim_inactive 0.05
-#blur enable
-#blur_passes 2
-#blur_radius 2
+smart_corner_radius on
+corner_radius 6
+default_dim_inactive 0.05
+blur enable
+blur_passes 2
+blur_radius 2
 #layer_effects "waybar" "blur enable"; shadows enable
 #shadows on
 #shadow_blur_radius 20
