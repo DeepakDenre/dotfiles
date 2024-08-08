@@ -13,6 +13,7 @@
 !sddm_themes
 !pacman
 !packagelist
+!grub
 
 !i3/*
 !kitty/*
@@ -24,3 +25,4 @@
 !sddm_themes/*
 !install.sh
 !pacman/*
+!grub/*
