@@ -57,7 +57,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
 
 #Wallpaper
-exec --no-startup-id swaybg -i ~/.config/Wallpaper/Elden_Ring_Radan.jpg
+exec --no-startup-id ~/.config/i3/wallpaper.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -182,13 +182,13 @@ bindsym $mod+Shift+r reload
 bindsym $mod+Shift+t restart
 
 #shortcut for apps
-bindsym Mod1+Shift+1 exec spotify
-bindsym Mod1+Shift+2 exec google-chrome-stable
-bindsym Mod1+Shift+3 exec /usr/local/Apps/VSCode/bin/code
-bindsym Mod1+Shift+4 exec kitty 
-bindsym Mod1+Shift+5 exec steam
-bindsym Mod1+Shift+6 exec qbittorrent
-bindsym Mod1+Shift+7 exec google-chrome-stable --profile-directory=Default --app-id=hnpfjngllnobngcgfapefoaidbinmjnm
+bindsym Mod1+1 exec spotify
+bindsym Mod1+2 exec google-chrome-stable
+bindsym Mod1+3 exec /usr/local/Apps/VSCode/bin/code
+bindsym Mod1+4 exec kitty 
+bindsym Mod1+5 exec steam
+bindsym Mod1+6 exec qbittorrent
+bindsym Mod1+7 exec google-chrome-stable --profile-directory=Default --app-id=hnpfjngllnobngcgfapefoaidbinmjnm
 
 bindsym $mod+m exec wlogout -b 4 -c 90 
 
