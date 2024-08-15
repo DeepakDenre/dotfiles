@@ -10,18 +10,23 @@ WHITE='\033[0;37m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-user=$(whoami)
-# Checking if the script is run as root
-if [ "$EUID" -ne 0 ]
-  then
-    echo -e "${RED}Please provide $user Password-${NC}"
-    sudo -v
+# stopping the script if run as root
+if [ "$EUID" -eq 0 ]; then
+  echo -e "${RED}Please do not run this script as root.${NC}"
+  exit 1
 fi
 
+# checking is pacman is installed
+if test -f /usr/bin/pacman; then
+  echo -e "checking if packages are installed...${BLUE}(pacman)${NC}"
+else
+  echo -e "${BLUE}pacman${NC} is ${RED}not installed${NC}."
+  echo -e "Please install ${BLUE}pacman${NC} before running this script."
+  exit 1
+fi
 # checking and installing packages from pacman
-
+#packages="" is a array of packages that are not installed
 packages=""
-echo -e "checking if packages are installed...${BLUE}(pacman)${NC}"
 if test -f /usr/bin/git; 
   then
     echo -e "${GREEN}git${NC} already ${BLUE}installed${NC}."
@@ -142,6 +147,7 @@ if test -f /usr/bin/yay;
     cd ..
     rm -rf .temp
 fi
+echo ""
 
 # checking and installing packages from yay
 if test -f /usr/share/fonts/TTF/FiraCodeNerdFont-Regular.ttf;
@@ -222,7 +228,7 @@ echo ""
 echo -e "${GREEN}Installing${NC} config files..."
 echo ""
 if test -d ~/.config; then
-  echo -e "Directory ${YELLOW}~/.config${NC} already exist."
+  echo -e "${GREEN}Directory ${YELLOW}~/.config${NC} already exist."
 else
   echo -e "Directory ${RED}~/.config${NC} does not exist."
   echo "Creating ${GREEN}~/.config...${NC}"
@@ -230,25 +236,49 @@ else
 fi
 echo ""
 echo "Copying config files..."
-cp -r i3 ~/.config/ 
-cp -r kitty ~/.config/
-cp -r Wallpaper ~/.config/
-cp -r waybar ~/.config/
-cp -r wlogout ~/.config/
-cp -r wofi ~/.config/
-cp -r zsh ~/.config/
-sudo cp -r pacman/pacman.conf /etc/
-sudo cp -r grub/grub /etc/default/
+echo -e "${GREEN}copying ${BLUE}i3${GREEN} config files...${NC}"
+cp -rv i3 ~/.config/
+echo ""
+echo -e "${GREEN}copying ${BLUE}kitty${GREEN} config files...${NC}"
+cp -rv kitty ~/.config/
+echo ""
+echo -e "${GREEN}copying ${BLUE}wallpaper${GREEN} files...${NC}"
+cp -rv Wallpaper ~/.config/
+echo ""
+echo -e "${GREEN}copying ${BLUE}waybar${GREEN} config files...${NC}"
+cp -rv waybar ~/.config/
+echo ""
+echo -e "${GREEN}copying ${BLUE}wlogout${GREEN} config files...${NC}"
+cp -rv wlogout ~/.config/
+echo ""
+echo -e "${GREEN}copying ${BLUE}wofi${GREEN} config files...${NC}"
+cp -rv wofi ~/.config/
+echo ""
+echo -e "${GREEN}copying ${BLUE}zsh${GREEN} config files...${NC}"
+cp -rv ./zsh ~/.config/
 mv ~/.config/zsh/.zshenv ~/
+echo ""
+echo -e "${GREEN}copying ${BLUE}pacman${GREEN} config files...${NC}"
+sudo cp -rv ./pacman/pacman.conf /etc/
+echo ""
+echo -e "${GREEN}copying ${BLUE}grub${GREEN} config files...${NC}"
+sudo cp -rv ./grub/grub /etc/default/
+echo ""
 if test -d /usr/share/sddm/themes; then
-  sudo cp -rf sddm_themes/* /usr/share/sddm/themes/
+  echo -e "${GREEN}copying ${BLUE}sddm${GREEN} config files...${NC}"
+  sudo cp -rv sddm/sddm_themes/* /usr/share/sddm/themes/
 else
-  echo "Directory /usr/share/sddm/themes does not exist."
-  echo "Creating /usr/share/sddm/themes..."
+  echo -e "${RED}Directory /usr/share/sddm/themes does not exist.${NC}"
+  echo "${GREEN}Creating /usr/share/sddm/themes...${NC}"
   sudo mkdir /usr/share/sddm/themes
-  sudo cp -rf sddm_themes/* /usr/share/sddm/themes/
+  echo -e "${GREEN}copying ${BLUE}sddm${GREEN} config files...${NC}"
+  sudo cp -rv sddm/sddm_themes/* /usr/share/sddm/themes/
 fi
+echo ""
+echo -e "${GREEN}copying ${BLUE}sddm${GREEN} config files...${NC}"
+sudo cp -rv sddm/default.conf /usr/lib/sddm/sddm.conf.d/
 echo ""
 echo -e "${CYAN}config successfully installed${NC}"
 
 exit 0
+.

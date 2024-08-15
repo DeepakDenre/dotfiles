@@ -10,7 +10,7 @@
 !wofi
 !zsh
 !Wallpaper
-!sddm_themes
+!sddm
 !pacman
 !packagelist
 !grub
@@ -22,7 +22,7 @@
 !wofi/*
 !zsh/*
 !Wallpaper/*
-!sddm_themes/*
+!sddm/*
 !install.sh
 !pacman/*
 !grub/*
