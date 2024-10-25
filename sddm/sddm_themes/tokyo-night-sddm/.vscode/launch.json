@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "type": "bashdb",
+            "request": "launch",
+            "name": "Bash-Debug (type in script name)",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/test.sh",
+            "terminalKind": "integrated"
+        }
+    ]
+}

@@ -56,6 +56,10 @@ exec --no-startup-id nm-applet
 #Polkit
 exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
 
+#Rclone
+exec --no-startup-id rclone --vfs-cache-mode writes mount OneDrive_Personal: ~/OneDrive/Personal
+exec --no-startup-id rclone --vfs-cache-mode writes mount OneDrive_College: ~/OneDrive/College
+
 #Wallpaper
 exec --no-startup-id ~/.config/i3/wallpaper.sh
 
@@ -184,7 +188,7 @@ bindsym $mod+Shift+t restart
 #shortcut for apps
 bindsym Mod1+1 exec spotify
 bindsym Mod1+2 exec google-chrome-stable
-bindsym Mod1+3 exec /usr/local/Apps/VSCode/bin/code
+bindsym Mod1+3 exec /usr/local/apps/VSCode/bin/code
 bindsym Mod1+4 exec kitty 
 bindsym Mod1+5 exec steam
 bindsym Mod1+6 exec qbittorrent
