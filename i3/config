@@ -53,6 +53,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+#wmname
+exec --no-startup-id wmname LG3D &
+
 #Polkit
 exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
 
@@ -62,6 +65,13 @@ exec --no-startup-id rclone --vfs-cache-mode writes mount OneDrive_College: ~/On
 
 #Wallpaper
 exec --no-startup-id ~/.config/i3/wallpaper.sh
+
+#systray
+exec --no-startup-id nm-applet
+
+# use xbacklight to controll brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -82,6 +92,9 @@ bindsym $mod+Shift+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+c kill
+
+# flameshot 
+bindsym $mod+Shift+s exec flameshot launcher
 
 #wofi launcher
 bindsym $mod+p exec --no-startup-id wofi -S drun -G
@@ -194,6 +207,7 @@ bindsym Mod1+5 exec steam
 bindsym Mod1+6 exec qbittorrent
 bindsym Mod1+7 exec google-chrome-stable --profile-directory=Default --app-id=hnpfjngllnobngcgfapefoaidbinmjnm
 
+#execute Wlogout for logout, suspend, hibernate, reboot and shutdown
 bindsym $mod+m exec wlogout -b 4 -c 90 
 
 # resize window (you can also use the mouse for that)

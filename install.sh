@@ -48,12 +48,28 @@ echo ""
 
 packages=""
 
+if test -f /usr/bin/nm-applet;
+  then
+    echo -e "${GREEN}${CHECK} network-manager-applet-git${NC} already ${BLUE}installed${NC}."
+  else
+    echo -e "${RED}${CROSS} network-manager-applet-git${NC} could not be found"
+    packages="$packages network-manager-applet-git"
+fi
+
 if test -f /usr/bin/i3;
   then
     echo -e "${GREEN}${CHECK} i3${NC} already ${BLUE}installed${NC}."
   else
     echo -e "${RED}${CROSS} i3${NC} could not be found"
     packages="$packages i3"
+fi
+
+if test -f /usr/bin/wmname;
+  then
+    echo -e "${GREEN}${CHECK} wmname${NC} already ${BLUE}installed${NC}."
+  else
+    echo -e "${RED}${CROSS} wmname${NC} could not be found"
+    packages="$packages wmname"
 fi
 
 if test -f /usr/bin/pavucontrol;
@@ -159,6 +175,14 @@ if test -f /usr/bin/swaync;
   else
     echo -e "${RED}${CROSS} swaync-git${NC} could not be found"
     packages="$packages swaync-git"
+fi
+
+if test -f /usr/bin/swaylock;
+  then
+    echo -e "${GREEN}${CHECK} swaylock${NC} already ${BLUE}installed${NC}."
+  else
+    echo -e "${RED}${CROSS} swaylock${NC} could not be found"
+    packages="$packages swaylock"
 fi
 
 if yay -Q xfce-polkit &> /dev/null;

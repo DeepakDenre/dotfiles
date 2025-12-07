@@ -238,37 +238,37 @@
         "custom/Spotify":{
             "on-click": "spotify",
             "format": "{icon}",
-            "format-icons": "  Spotify"
+            "format-icons": "1   Spotify"
         },
         "custom/Chrome":{
             "on-click": "google-chrome-stable",
             "format": "{icon}",
-            "format-icons": "  Chrome"
+            "format-icons": "2   Chrome"
         },
         "custom/VSCode":{
             "on-click": "/usr/local/Apps/VSCode/bin/code",
             "format": "{icon}",
-            "format-icons": "  VSCode"
+            "format-icons": "3   VSCode"
         },
         "custom/terminal":{
             "on-click": "kitty",
             "format": "{icon}",
-            "format-icons": "  Terminal"
+            "format-icons": "4   Terminal"
         },
         "custom/Steam":{
             "on-click": "steam",
             "format": "{icon}",
-            "format-icons": "  Steam"
+            "format-icons": "5   Steam"
         },
         "custom/qbittorrent":{
             "on-click": "qbittorrent",
             "format": "{icon}",
-            "format-icons": "  Torrent"
+            "format-icons": "6   Torrent"
         },
         "custom/whatsapp":{
             "on-click": "/opt/google/chrome/google-chrome --profile-directory=Default --app-id=hnpfjngllnobngcgfapefoaidbinmjnm",
             "format": "{icon}",
-            "format-icons": "  Whatsapp Web"
+            "format-icons": "7   Whatsapp Web"
         }
     }
 ]
